@@ -5,7 +5,15 @@ DROP TABLE IF EXISTS people;
 
 CREATE TABLE people (
     pID SERIAL PRIMARY KEY,
-    pFirstName VARCHAR(50) NOT NULL
+    pFirstName VARCHAR(50) NOT NULL,
+    plastname VARCHAR(50) NOT NULL,
+    pcity VARCHAR(50) NOT NULL,
+    pstate VARCHAR(2) NOT NULL,
+    pdob TIMESTAMP NOT NULL,
+    pjoined TIMESTAMP NOT NULL,
+    plastvisit TIMESTAMP NOT NULL,
+    ppoints INT NOT NULL,
+    pfavorites JSONB NOT NULL
 );
 
 CREATE TABLE lists (
@@ -26,11 +34,6 @@ CREATE TABLE listItems (
     liDesired INT NOT NULL DEFAULT 1,
     liPurchased INT NOT NULL DEFAULT 0
 );
-
-ALTER TABLE people
-    ADD COLUMN plastname VARCHAR(50) NOT NULL,
-    ADD COLUMN pcity VARCHAR(50) NOT NULL,
-    ADD COLUMN pstate VARCHAR(50) NOT NULL;
 
 INSERT INTO people (pfirstname, plastname, pstate, pcity) VALUES
 ('Elijah', 'Bennett', 'CA', 'San Francisco'),
